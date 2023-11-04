@@ -18,14 +18,14 @@ console.log(balance)
 
   function handleDeposit() {
     if(!depositAmount) return;
-    dispatch(deposit(depositAmount))
+    dispatch(deposit(depositAmount,currency))
     setDepositAmount('')
     setCurrency("USD")
   }
 
   function handleWithdrawal() {
     if(!withdrawalAmount) return;
-    dispatch(withdraw(withdrawalAmount,currency));
+    dispatch(withdraw(withdrawalAmount));
     setWithdrawalAmount('');
   }
 

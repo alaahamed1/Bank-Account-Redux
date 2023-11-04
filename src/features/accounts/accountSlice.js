@@ -36,34 +36,34 @@ const initialStateAccount = {
 
 
 
-// export function deposit(amount, currency) {
-//   if (currency === "USD") return { type: "account/deposit", payload: amount };
-//   console.log(currency)
+export function deposit(amount, currency) {
+  if (currency === "USD") return { type: "account/deposit", payload: amount };
+  console.log(currency)
 
-//   return async function (dispatch, getState) {
-//     // api call
+  return async function (dispatch, getState) {
+    // api call
 
-//     const res = await fetch(
-//       `https://api.frankfurter.app/latest?amount=${amount}&from=${currency}&to=USD`
-//     );
-//     const data = await res.json();
-//     console.log(data)
-//     // const converted = data.rates.USD;
+    const res = await fetch(
+      `https://api.frankfurter.app/latest?amount=${amount}&from=${currency}&to=USD`
+    );
+    const data = await res.json();
+    console.log(data)
+    // return action
+    const converted = data.rates.USD;
 
-//     // dispatch({ type: "account/deposit", payload: converted });
+    dispatch({ type: "account/deposit", payload: converted });
 
-//     // return action
-//   }
-//   }
+  }
+  }
 
 
 
 
 
 // action creator => simply create one function for each action
-  export function deposit (amount, currency){
-    return { type: "account/deposit", payload: amount };
-  }
+  // export function deposit (amount, currency){
+  //   return { type: "account/deposit", payload: amount };
+  // }
 
 
   export function withdraw (amount){
